@@ -12,5 +12,6 @@ class StringCalculatorsController < ApplicationController
     rescue => e
       @error = e.message
     end
+    render :index
   end
 end

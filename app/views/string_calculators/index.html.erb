@@ -10,3 +10,9 @@
     <%= form.submit "Calculate" %>
   </div>
 <% end %>
+
+<% if @result %>
+  <h2>Result: <%= @result %></h2>
+<% elsif @error %>
+  <h2 style="color: red;">Error: <%= @error %></h2>
+<% end %>

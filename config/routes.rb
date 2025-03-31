@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   get 'string_calculators/index'
   get 'string_calculators/calculate'
-  root 'string_calculators#calculate'
+  root 'string_calculators#index'
 end
