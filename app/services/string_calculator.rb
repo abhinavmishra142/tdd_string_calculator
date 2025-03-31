@@ -2,7 +2,7 @@ class StringCalculator
   def add(numbers)
     0 if numbers.blank?
 
-    numbers = numbers.gsub("\\n", "\n")
+    numbers = numbers.to_s.gsub("\\n", "\n")
     if numbers.start_with?("//")
       delimiter, numbers = numbers[2..].split("\n", 2)
       numbers = numbers.split(/#{delimiter}/).map(&:to_i)
