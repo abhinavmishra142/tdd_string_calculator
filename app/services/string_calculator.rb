@@ -5,9 +5,14 @@ class StringCalculator
     numbers = numbers.gsub("\\n", "\n")
     if numbers.start_with?("//")
       delimiter, numbers = numbers[2..].split("\n", 2)
-      numbers.split(/#{delimiter}/).map(&:to_i).sum
+      numbers = numbers.split(/#{delimiter}/).map(&:to_i)
     else
-      numbers.split(/,|\n/).map(&:to_i).sum
+      numbers = numbers.split(/,|\n/).map(&:to_i)
     end
+
+    negative_numbers = numbers.select { |number| number < 0 }
+    raise "negative numbers not allowed #{negative_numbers.join(', ')}" unless negative_numbers.empty?
+
+    numbers.sum
   end
 end
